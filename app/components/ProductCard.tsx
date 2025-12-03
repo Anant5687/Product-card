@@ -10,7 +10,7 @@ interface ProductCardProps {
 
 const cardVariants = {
   hidden: { opacity: 0, y: 20, scale: 0.95 },
-  visible: { opacity: 1, y: 0, scale: 1, transition: { type: "spring", stiffness: 100, damping: 10 } },
+  visible: { opacity: 1, y: 0, scale: 1, transition: { type: "string", stiffness: 100, damping: 10 } },
 };
 
 const ProductCard: React.FC<ProductCardProps> = ({ record }) => {
