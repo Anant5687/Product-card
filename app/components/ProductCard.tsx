@@ -7,10 +7,18 @@ import Image from 'next/image';
 interface ProductCardProps {
   record: RecordItem;
 }
-
 const cardVariants = {
-  hidden: { opacity: 0, y: 20, scale: 0.95 },
-  visible: { opacity: 1, y: 0, scale: 1, transition: { type: "string", stiffness: 100, damping: 10 } },
+  hidden: { opacity: 0, y: 50, scale: 0.8 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    transition: {
+      type: 'spring',
+      stiffness: 100,
+      damping: 10,
+    },
+  },
 };
 
 const ProductCard: React.FC<ProductCardProps> = ({ record }) => {
@@ -24,10 +32,10 @@ const ProductCard: React.FC<ProductCardProps> = ({ record }) => {
       layout
     >
       <div className="relative h-48 w-full overflow-hidden">
-        <Image 
-          className="w-full h-full object-cover" 
-          src={record.image} 
-          alt={record.title} 
+        <Image
+          className="w-full h-full object-cover"
+          src={record.image}
+          alt={record.title}
           width={100}
           height={100}
         />
@@ -37,16 +45,17 @@ const ProductCard: React.FC<ProductCardProps> = ({ record }) => {
         <h2 className="text-xl font-extrabold text-gray-800 mb-1 text-center">
           {record.title}
         </h2>
-        
-        <p className="text-xs text-gray-500 mb-3 font-mono">
-          {record.date}
-        </p>
+
+        <p className="text-xs text-gray-500 mb-3 font-mono">{record.date}</p>
 
         <p className="text-sm text-gray-600 text-center mb-4">
-          <span className="font-semibold text-red-600">Snippet (Encrypted):</span> {record.snippet}
+          <span className="font-semibold text-red-600">
+            Snippet (Encrypted):
+          </span>{' '}
+          {record.snippet}
         </p>
-        
-        <button 
+
+        <button
           className="w-full bg-indigo-600 text-white py-2 rounded-lg 
                      hover:bg-indigo-700 transition-colors duration-200 text-sm font-semibold 
                      focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
