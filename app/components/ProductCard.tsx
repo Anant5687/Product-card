@@ -28,7 +28,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ record }) => {
                  hover:shadow-xl transition-shadow duration-300 transform hover:scale-[1.01]"
       initial="hidden"
       animate="visible"
-      variants={cardVariants}
+      // variants={cardVariants}
       layout
     >
       <div className="relative h-48 w-full overflow-hidden">
